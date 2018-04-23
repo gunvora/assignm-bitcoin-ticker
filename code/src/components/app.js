@@ -32,7 +32,6 @@ class App extends React.Component {
   }
 
   handleNewTickerMessage = newTickerMessage => {
-
     newTickerMessage.price = parseFloat(newTickerMessage.price)
     newTickerMessage.sequence = parseFloat(newTickerMessage.sequence)
     this.setState(previousState => ({
@@ -55,13 +54,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <LineChart width={400} height={400} data={this.state.tickerMessages}>
+        <LineChart width={600} height={400} data={this.state.tickerMessages}>
           <Line type="monotone" dataKey="price" stroke="blue" />
-          <Line type="monotone" dataKey="price" stroke="red" />
-          <Line type="monotone" dataKey="high_24h" stroke="green" />
+          <Line type="monotone" dataKey="volume_24h" stroke="green" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Legend />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="product_id" />
           <YAxis dataKey="price" />
           <Tooltip />
         </LineChart>
